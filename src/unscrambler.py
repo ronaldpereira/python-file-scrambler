@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+
 import os
 import shutil
 import sys
@@ -16,7 +18,7 @@ class FolderMethods:
             os.mkdir(self.path)
 
 class Unscramble:
-    
+        
         pass
 
 
@@ -30,9 +32,9 @@ folder.checkIfFolderExistsAndCreate()
 
 with open(filePath, 'rb') as file:
     while 1:
-        firstLine = file.readline().decode('utf-8')[:-1]
+        firstLine = file.readline()
 
-        if firstLine == "|%|endoffile|%|":
+        if firstLine == "|%|endoffile|%|\n".encode('uft-8'):
             sys.exit(0)
 
         outputFile = open(folder.path+firstLine, "wb")
